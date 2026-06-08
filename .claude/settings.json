@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import reportlab; print\\('reportlab OK'\\)\")",
+      "Bash(python3 -c \"import fpdf; print\\('fpdf OK'\\)\")",
+      "Bash(python3 -c \"import markdown; print\\('markdown OK'\\)\")",
+      "Bash(python3 section_02_the_road.py)"
+    ]
+  }
+}
