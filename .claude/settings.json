@@ -4,7 +4,19 @@
       "Bash(python3 -c \"import reportlab; print\\('reportlab OK'\\)\")",
       "Bash(python3 -c \"import fpdf; print\\('fpdf OK'\\)\")",
       "Bash(python3 -c \"import markdown; print\\('markdown OK'\\)\")",
-      "Bash(python3 section_02_the_road.py)"
+      "Bash(python3 section_02_the_road.py)",
+      "Bash(curl -sL \"https://api.github.com/repos/Ed0ardo/QuizPatenteB/git/trees/main?recursive=1\")",
+      "Bash(curl -sL -o quizPatenteB2023.json \"https://raw.githubusercontent.com/Ed0ardo/QuizPatenteB/main/quizPatenteB2023.json\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('quizPatenteB2023.json'\\)\\); print\\('Type:', type\\(d\\).__name__\\); print\\('Count:', len\\(d\\)\\); print\\('Sample:', json.dumps\\(d[0] if isinstance\\(d,list\\) else list\\(d.items\\(\\)\\)[0], ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(git clone *)",
+      "Bash(mv _quiz_tmp/img_sign ./img_sign)",
+      "Bash(rm -rf _quiz_tmp)",
+      "Bash(curl -sL \"https://api.github.com/repos/Ed0ardo/QuizPatenteB/commits?per_page=5\")",
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:www.patentati.it)",
+      "WebFetch(domain:www.mininterno.net)",
+      "Bash(curl -sL -o arkan.json \"https://raw.githubusercontent.com/arkan-bayt/QuizPatenteB/HEAD/public/quizData.json\")",
+      "Bash(curl -sL -o priv.json \"https://raw.githubusercontent.com/Privitorta/QuizPatenteA-B/HEAD/domande.json\")"
     ]
   }
 }
