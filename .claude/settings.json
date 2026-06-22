@@ -16,7 +16,21 @@
       "WebFetch(domain:www.patentati.it)",
       "WebFetch(domain:www.mininterno.net)",
       "Bash(curl -sL -o arkan.json \"https://raw.githubusercontent.com/arkan-bayt/QuizPatenteB/HEAD/public/quizData.json\")",
-      "Bash(curl -sL -o priv.json \"https://raw.githubusercontent.com/Privitorta/QuizPatenteA-B/HEAD/domande.json\")"
+      "Bash(curl -sL -o priv.json \"https://raw.githubusercontent.com/Privitorta/QuizPatenteA-B/HEAD/domande.json\")",
+      "WebFetch(domain:patenteinenglish.com)",
+      "WebFetch(domain:ilportaledellautomobilista.it)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120 Safari/537.36\" \"https://ilportaledellautomobilista.it/web/portale-automobilista/-/quiz-per-le-patenti-am-b-superiori-e-cqc\" -o mit.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 Chrome/120 Safari/537.36\" -e \"https://ilportaledellautomobilista.it/web/portale-automobilista/-/quiz-per-le-patenti-am-b-superiori-e-cqc\" \"https://ilportaledellautomobilista.it/documents/56611/57321/domande+AB+italiano+23+04+2025/95e60cf5-8e20-444a-87d3-7b51e979e851\" -o listato_AB_MIT_2025-04-23.bin -D -)",
+      "Bash(mv listato_AB_MIT_2025-04-23.bin listato_AB_MIT_2025-04-23.pdf)",
+      "Bash(python3 -c \"import PyPDF2\")",
+      "Bash(pip install *)",
+      "Bash(pdftotext -layout listato_AB_MIT_2025-04-23.pdf /tmp/listato.txt)",
+      "Bash(cp /tmp/priv.json ./listato_ufficiale_MIT_2025_questions.json)",
+      "Bash(sed -E 's/[[:space:]]+$//')",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "Bash(cat)",
+      "Bash(python3 /tmp/build_list.py)"
     ]
   }
 }
