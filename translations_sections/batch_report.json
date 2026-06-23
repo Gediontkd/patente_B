@@ -1,0 +1,32 @@
+{
+  "source": "quizPatenteB_updated_2026.json",
+  "output": "quizPatenteB_translated.json",
+  "sections": {
+    "definizioni-generali-doveri-strada": 531,
+    "segnali-pericolo": 662,
+    "segnali-divieto": 521,
+    "segnali-obbligo": 433,
+    "segnali-precedenza": 243,
+    "segnaletica-orizzontale-ostacoli": 260,
+    "semafori-vigili": 253,
+    "segnali-indicazione": 603,
+    "segnali-complementari-cantiere": 181,
+    "pannelli-integrativi": 263,
+    "limiti-di-velocita": 256,
+    "distanza-di-sicurezza": 135,
+    "norme-di-circolazione": 379,
+    "precedenza-incroci": 415,
+    "sorpasso": 156,
+    "fermata-sosta-arresto": 191,
+    "norme-varie-autostrade-pannelli": 332,
+    "luci-dispositivi-acustici": 176,
+    "cinture-casco-sicurezza": 135,
+    "patente-punti-documenti": 234,
+    "incidenti-stradali-comportamenti": 129,
+    "alcool-droga-primo-soccorso": 141,
+    "responsabilita-civile-penale-e-assicurazione": 149,
+    "consumi-ambiente-inquinamento": 103,
+    "elementi-veicolo-manutenzione-comportamenti": 285
+  },
+  "total": 7166
+}

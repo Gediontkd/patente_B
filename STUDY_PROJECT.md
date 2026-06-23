@@ -25,8 +25,10 @@ Last updated: 2026-06-23.
 
 | File | What it is |
 |---|---|
-| `patente_quiz_lista.html` | **THE DELIVERABLE** — single-page list of all 7,166 questions, 25 sections, V/F + Italian + inline sign image. English + hints not yet filled. Open from inside this folder so `img_sign/` loads. |
-| `scripts/build_list.py` | Generator for the HTML page. Re-run after data changes: `python3 scripts/build_list.py` |
+| `patente_quiz_lista.html` | **THE DELIVERABLE** — single-page list of all 7,166 questions, 25 sections, V/F + Italian + English aid + memory hint + inline sign image. Open from inside this folder so `img_sign/` loads. |
+| `scripts/build_list.py` | Generator for the HTML page. Prefers `quizPatenteB_translated.json` when present. Re-run after data changes: `python3 scripts/build_list.py` |
+| `scripts/generate_english_hints.py` | Local batch generator for English study-aid lines + memory hints. Re-run with `python3 scripts/generate_english_hints.py`. |
+| `quizPatenteB_translated.json` | Working translated dataset (7,166 Q), generated from `quizPatenteB_updated_2026.json`, with added `en` and `hint` keys. |
 | `quizPatenteB_updated_2026.json` | **Working dataset** (7,166 Q). 2023 community set + 27 newer questions, kept in the 25-section structure with images. The build script reads THIS file. |
 | `quizPatenteB2023.json` | Original 2023 community set (7,139 Q) with `img_sign/` images. Untouched. |
 | `listato_AB_MIT_2025-04-23.pdf` | **Official Ministry PDF** (authoritative, with figures), 23-04-2025. Ground truth. |
@@ -58,21 +60,25 @@ A hint must **force memorization by naming the trap**, not restate the sentence.
 
 ---
 
-## 4. Next step — fill in English + hints (the big batch)
+## 4. English + hints batch
 
-The remaining work is generating **English translation + hint for all ~7,100 questions**. This is a large batch best run **in parallel, one job per section** (25 sections), then re-assemble.
+Status: **batch generated** for all 7,166 questions.
 
-**Recommended approach (multi-agent workflow):**
-1. For each of the 25 section slugs, take its questions from `quizPatenteB_updated_2026.json`.
-2. Have one agent per section produce, for every question, structured output: `{q_it, en, hint}` (preserve order/answers; do NOT change Italian text or answers).
-3. Write results back into a new field per question, e.g. add `"en"` and `"hint"` keys → save as `quizPatenteB_translated.json`.
-4. Update `scripts/build_list.py` to read those keys and render the English line + a hint line (remove the `data-empty` hiding).
-5. Re-run `python3 scripts/build_list.py` → regenerates `patente_quiz_lista.html` with everything.
+Current implementation:
+1. `scripts/generate_english_hints.py` reads `quizPatenteB_updated_2026.json`.
+2. It preserves order, Italian question text, answers and images.
+3. It adds `"en"` and `"hint"` to each question and writes `quizPatenteB_translated.json`.
+4. It writes a run report to `translations_sections/batch_report.json`.
+5. `scripts/build_list.py` reads `quizPatenteB_translated.json` when present and renders English + hint lines.
 
-To resume on another computer, just say:
-> "Continue the Patente B project from STUDY_PROJECT.md — run the English + hints batch."
+Note: the English line is a local rule-based study aid, not a certified human/legal translation. The Italian remains the exam source of truth.
 
-**Smaller-first option:** do one section (e.g. `distanza-di-sicurezza` or `segnali-precedenza`) to approve translation + hint quality before the full run.
+To regenerate:
+
+```bash
+python3 scripts/generate_english_hints.py
+python3 scripts/build_list.py
+```
 
 ---
 
