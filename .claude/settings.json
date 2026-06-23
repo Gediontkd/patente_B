@@ -30,7 +30,9 @@
       "Skill(artifact-design)",
       "Skill(artifact-design:*)",
       "Bash(cat)",
-      "Bash(python3 /tmp/build_list.py)"
+      "Bash(python3 /tmp/build_list.py)",
+      "Bash(mkdir -p scripts)",
+      "Bash(cp /tmp/build_list.py scripts/build_list.py)"
     ]
   }
 }
